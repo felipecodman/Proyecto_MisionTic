@@ -1,0 +1,53 @@
+/*
+ * Globals
+ */
+
+
+/* Custom default button */
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: rgb(6, 245, 18);
+  text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+
+/*
+ * Base structure
+ */
+
+/*Degradado de los borde*/
+body {
+  display:flexbox;
+  align-items: center;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  background-color:rgb(34, 46, 34);
+  text-shadow: 0 .15rem .1rem rgba(56, 194, 35, 0.244);
+  box-shadow: inset 0 0 5rem rgba(68, 212, 150, 0.5);
+  height: 100%;
+}
+
+.cover-container {
+  max-width: 42em;
+}
+
+/*Color de la letra H1*/
+h1{
+  color:aqua;
+}
+
+.lead{
+  color:aqua;
+  font-size: 25px;
+  font:bold;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}

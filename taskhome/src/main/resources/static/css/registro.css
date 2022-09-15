@@ -1,0 +1,67 @@
+h1{
+    color:aqua;
+  }
+  
+  label{
+    color:rgb(0, 0, 0);
+  }
+  
+  .texto_general{
+    text-align: right;
+    font-size: 14px;
+    color:aqua;
+    
+  }
+  
+  label_check{
+    column-count:2;
+    color:aqua;
+  }
+  
+  body {
+    display:flexbox;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:rgb(34, 46, 34);
+    text-shadow: 0 .15rem .1rem rgba(56, 194, 35, 0.244);
+    box-shadow: inset 0 0 5rem rgba(68, 212, 150, 0.5);
+    height: 100%;
+  }
+  
+  .cover-container {
+    max-width: 42em;
+  }
+  
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .grid-2{
+    column-count:2;
+    width:100%;
+    margin-right:2%;
+    float: left;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+  

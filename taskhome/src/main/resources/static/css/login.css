@@ -4,18 +4,25 @@ h1{
 
 label{
   color:rgb(0, 0, 0);
-  background-color:cadetblue;
+}
+
+.texto_general{
+  text-align: right;
+  font-size: 14px;
+  color:aqua;
+  
 }
 
 label_check{
+  column-count:2;
   color:aqua;
 }
 
 body {
   display:flexbox;
   align-items: center;
-  padding-top: 60px;
-  padding-bottom: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color:rgb(34, 46, 34);
   text-shadow: 0 .15rem .1rem rgba(56, 194, 35, 0.244);
   box-shadow: inset 0 0 5rem rgba(68, 212, 150, 0.5);
@@ -45,4 +52,11 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.grid-2{
+  column-count:2;
+  width:100%;
+  margin-right:2%;
+  float: left;
 }
