@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskHome</title>
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templates/login.html">
+    <link rel="stylesheet" href="css/index.css">
+
+    <title>TaskHome</title>
 </head>
-<body>
-    <h1>Bienvenido a TaskHome</h1>
-
-    <div class="container">
-        <form method="get" action="api/bienvenido">
-            <div class="row">
-                <label for="name">Nombre</label>
-                <input id="name" class="col-xs-12" name="name" placeholder="Ingrese su Nombre" required >
-            </div> 
-            <div class="row">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" class="col-xs-12" name="password" placeholder="Ingrese su Contraseña" required  >
-            </div> 
-            <div class="row">
-                <button class="col btn btn-primary" type="sumit" >Ingresar</button>
+    <body class="d-lg-flex h-100 text-center bg-transparent text-info">
+    
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <!--Lo comentamos por si necesitamos el encabezado
+          <header class="mb-auto">
+            <div>
+              <h3 class="float-md-start mb-0">TaskHome</h3>
+              <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+                <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
+                <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+              </nav>
             </div>
-        </form>
-    </div>
-
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
+          </header>
+        -->
+          <main class="px-1">
+            <p>
+                <img class="mb-4" src="images/TaskHome.jpg" alt="" width="120" height="100">
+            </p>
+            
+            
+            <p class="lead">Te ayudamos a programar y recordar las tareas del hogar tuyas o de tu nucleo familia</p>
+            <p class="lead">
+            <a  class="btn btn-lg btn-secondary fw-bold border-white bg-dark text-info" href="../templates/login.html" >Ingresar</a>
+            </p>
+          </main>
+        
+          <footer class="mt-auto text-white-50">
+            <p>Desarrollado Por: <a href="https://getbootstrap.com/" class="text-white">TaskHome</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+          </footer>
+        </div>
+    </body>
 </html>
