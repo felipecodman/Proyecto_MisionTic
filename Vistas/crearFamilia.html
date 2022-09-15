@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Familia</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilos/signup.css">
+</head>
+<body>
+    <div class="container w-75 bg-light mt-3 rounded-3 shadow-lg contenedor">
+        <div class="text-center mb-3">
+            <h1>Crear grupo familiar</h1>
+            <p>Por favor diligencia los siguientes campos</p>
+        </div>
+        <div class="row">
+            <div class="row">
+                <div class="col-3">
+                    <img src="Estilos/icons/family.png" class="img-fluid" alt="Icono de familia">
+                </div>
+                <div class="col-9">
+                    <form>
+                        <div class="mb-3">
+                            <label for="familyName" class="form-label">Nombre de tu familia</label>
+                            <input type="text" class="form-control" id="familyName" autofocus>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <img src="Estilos/icons/password.png" class="img-fluid" alt="Icono de contraseña">
+                </div>
+                <div class="col-9">
+                    <form>
+                        <div class="mb-3">
+                            <label for="newPasswordFamily" class="form-label">Contraseña familiar</label>
+                            <input type="password" class="form-control" id="newPasswordFamily">
+                            <div id="newPasswordFamily" class="form-text">
+                                Su contraseña debe contener más de 6 caracteres.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <img src="Estilos/icons/password.png" class="img-fluid" alt="Icono de contraseña">
+                </div>
+                <div class="col-9">
+                    <form>
+                        <div class="mb-3">
+                            <label for="newPasswordFamily1" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="newPasswordFamily1">
+                            <div id="newPasswordFamily" class="form-text">
+                                Esta contraseña debe ser usada por todos los miembros de la familia.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row-cols-lg-auto g-3 align-items-center">
+                <form>
+                    <div class="mb-3 col-3 mx-auto">
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                    </div>
+
+                    <div class="mb-3">
+                        <span>¿Ya tienes a tu familia registrada? <a href="#">Ingresar</a></span>
+                    </div>
+                  </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="align-bottom">
+        Development Team JFEP &copy; 2022
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
