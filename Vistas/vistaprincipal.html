@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeTask</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilos/vistaprincipal.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <!--Foto de usuario y agregar tarea-->
+                <div class="card m-2">
+                    <img src="Estilos/icons/personal.png" class="card-img-top" alt="...">
+                    <div class="card-body d-grid gap-2 col-10 mx-auto">
+                      <a href="#" class="btn btn-primary">Agregar tarea</a>
+                    </div>
+                </div>
+
+                <!--Links parte derecha-->
+                <h2 class=" mt-3">Calendario</h2>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Hoy</a>
+                    <a href="#" class="list-group-item list-group-item-action">Próximos 7 días</a>
+                    <a href="#" class="list-group-item list-group-item-action">Todas las tareas</a>
+                </div>
+
+                <h2 class="mt-3">Listas</h2>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Personal</a>
+                    <a href="#" class="list-group-item list-group-item-action">Work</a>
+                    <a href="#" class="list-group-item list-group-item-action">Familiar</a>
+                </div>
+                
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <div class="alert alert-info m-2" role="alert">
+                    Buenos días, <a href="#" class="alert-link">Nombre</a>.
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 border border-dark pb-3">
+                        <h2>Tareas pendientes</h2>
+                          <div>
+                            <label class="fs-2">Hoy</label><br>
+                            <input class="form-check-input" id="compra" type="checkbox" name="tareasHoy" value="mercad">  
+                            <label class="form-check-label" for="compra">Comprar mercado</label><br>
+                            <input class="form-check-input" id="lavar" type="checkbox" name="tareasHoy" value="lav">  
+                            <label class="form-check-label" for="lavar">Lavar la ropa</label><br>          
+                            <input class="form-check-input" id="tender" type="checkbox" name="tareasHoy" value="tend">  
+                            <label class="form-check-label" for="tender">Tender la cama</label><br><br>
+                        </div>
+
+                        <div>
+                            <label class="fs-2">Mañana</label><br>
+                            <input class="form-check-input" id="basura" type="checkbox" name="tareasMañana" value="basur">  
+                            <label class="form-check-label" for="basura">Sacar la basura</label><br>
+                            <input class="form-check-input" id="barrerc" type="checkbox" name="tareasMañana" value="barrerCuar">  
+                            <label class="form-check-label" for="barrerc">Barrer el cuarto</label><br>          
+                            <input class="form-check-input" id="lavarpiso" type="checkbox" name="tareasMañana" value="lavarPis">  
+                            <label class="form-check-label" for="lavarpiso">Lavar el piso</label><br><br>
+                        </div>
+
+                        <div>
+                            <label class="fs-2">Proximamente</label><br>
+                            <input class="form-check-input" id="regar" type="checkbox" name="tareasProximam" value="rega">  
+                            <label class="form-check-label" for="regar">Regar las plantas</label><br>
+                            <input class="form-check-input" id="sacudir" type="checkbox" name="tareasProximam" value="sacud">  
+                            <label class="form-check-label" for="sacudir">Sacudir</label><br>          
+                            <input class="form-check-input" id="lavarba" type="checkbox" name="tareasProximam" value="lavarBañ">  
+                            <label class="form-check-label" for="lavarba">Lavar los baños</label><br>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                        <!--CALENDARIO-->
+                <div class="container_calendar">
+                    <div class="calendar">
+                      <div class="front">
+                        <div class="current-date">
+                          <h1>Friday 15th</h1>
+                          <h1>January 2016</h1> 
+                        </div>
+              
+                        <div class="current-month">
+                          <ul class="week-days">
+                            <li>MON</li>
+                            <li>TUE</li>
+                            <li>WED</li>
+                            <li>THU</li>
+                            <li>FRI</li>
+                            <li>SAT</li>
+                            <li>SUN</li>
+                          </ul>
+              
+                          <div class="weeks">
+                            <div class="first">
+                              <span class="last-month">28</span>
+                              <span class="last-month">29</span>
+                              <span class="last-month">30</span>
+                              <span class="last-month">31</span>
+                              <span>01</span>
+                              <span>02</span>
+                              <span>03</span>
+                            </div>
+              
+                            <div class="second">
+                              <span>04</span>
+                              <span>05</span>
+                              <span class="event">06</span>
+                              <span>07</span>
+                              <span>08</span>
+                              <span>09</span>
+                              <span>10</span>
+                            </div>
+              
+                            <div class="third">
+                              <span>11</span>
+                              <span>12</span>
+                              <span>13</span>
+                              <span>14</span>
+                              <span class="active">15</span>
+                              <span>16</span>
+                              <span>17</span>
+                            </div>
+              
+                            <div class="fourth">
+                              <span>18</span>
+                              <span>19</span>
+                              <span>20</span>
+                              <span>21</span>
+                              <span>22</span>
+                              <span>23</span>
+                              <span>24</span>
+                            </div>
+              
+                            <div class="fifth">
+                              <span>25</span>
+                              <span>26</span>
+                              <span>27</span>
+                              <span>28</span>
+                              <span>29</span>
+                              <span>30</span>
+                              <span>31</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="back">
+                        <input placeholder="What's the event?">
+                        <div class="info">
+                          <div class="date">
+                            <p class="info-date">
+                            Date: <span>Jan 15th, 2016</span>
+                            </p>
+                            <p class="info-time">
+                              Time: <span>6:35 PM</span>
+                            </p>
+                          </div>
+                          <div class="address">
+                            <p>
+                              Address: <span>129 W 81st St, New York, NY</span>
+                            </p>
+                          </div>
+                          <div class="observations">
+                            <p>
+                              Observations: <span>Be there 15 minutes earlier</span>
+                            </p>
+                          </div>
+                        </div>
+              
+                        <div class="actions">
+                          <button class="save">
+                            Save <i class="ion-checkmark"></i>
+                          </button>
+                          <button class="dismiss">
+                            Dismiss <i class="ion-android-close"></i>
+                          </button>
+                        </div>
+                      </div>
+              
+                    </div>
+                  </div>
+                    </div>
+                </div>
+
+
+            
+            
+                <!--Menu-->
+                <div class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                      <span></span>
+                    </label>
+                    <ul class="menu__box">
+                      <li><a class="menu__item" href="#">Mi perfil</a></li>
+                            <li><a class="menu__item" href="#">Mi hogar</a></li>
+                            <li><a class="menu__item" href="#">Añadir a un miembro</a></li>
+                            <li><a class="menu__item" href="#">Administrar tareas</a></li>
+                            <li><a class="menu__item" href="#">Cerrar sesión</a></li>
+                    </ul>
+                  </div>
+            
+                
+            
+            
+            
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+<!--
+
+    <footer class="align-bottom">
+        <p>Development Team JFEP &copy; 2022</p>
+    </footer>
+
+    -->
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+</body>
+</html>
