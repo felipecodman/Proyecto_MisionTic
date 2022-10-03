@@ -37,4 +37,9 @@ public class TaskHomeController {
     public String goToPrincipal(Model model) {
         return "principal";
     }
+
+    @GetMapping("/registro")
+    public String goToRegistro(Model model) {
+        return "registro";
+    }
 }

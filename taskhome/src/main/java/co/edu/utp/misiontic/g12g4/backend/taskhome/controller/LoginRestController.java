@@ -25,9 +25,9 @@ public class LoginRestController {
     private final SecurityService securityService;
 
     @PostMapping
-    public ResponseEntity<?> login(@RequestBody LoginRequest user) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest email) {
         try {
-            var response = securityService.validateUser(user.getUsername(), user.getPassword());
+            var response = securityService.validateEmail(email.getEmail(), email.getPassword());
             return ResponseEntity.ok(response);
         } catch (RuntimeException ex) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)

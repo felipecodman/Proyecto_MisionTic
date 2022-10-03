@@ -27,9 +27,10 @@
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div> -->
       <!-- <span>or use your email for registration</span> -->
+      <!-- Comentado Elkin
       <input type="text" placeholder="Name">
       <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
+      <input type="password" placeholder="Password">-->
 
     </form>
   </div>
@@ -45,10 +46,28 @@
         <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
       </div> -->
       <!-- <span>or use your account</span> -->
+      <!-- Comentao Elkin
       <input type="nombre" placeholder="Nombre Usuario">Nombre Usuario</input>
       <input type="email" placeholder="Correo Electronico">Correo Electronico</input>
       <input type="password" placeholder="contraseña">Contraseña</input>
       <input type="confirmar-password" placeholder="Confirmar Password">Confirmar Contraseña</input>
+      -->
+      <div class="form-floating text-dark">
+          <input type="text" class="form-control" id="floatingInput" placeholder="Nombre Usuario">
+          <label for="floatingInput">Nombre Usuario</label>
+      </div>
+      <div class="form-floating text-dark">
+        <input type="text" class="form-control" id="floatingCorreo" placeholder="Correo Electronico">
+        <label for="floatingInput">Correo Electronico</label>
+      </div>
+      <div class="form-floating text-dark">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+          <label for="floatingPassword">Contraseña</label>
+      </div>
+      <div class="form-floating text-dark">
+        <input type="password" class="form-control" id="floatingConfirmarPassword" placeholder="Confirmar Contraseña">
+        <label for="floatingPassword">Confirmar Contraseña</label>
+      </div>
 
     </form>      
   </div>
@@ -61,14 +80,19 @@
         <input type="date" >Fecha de Nacimiento</input>
         <input type="ciudad" placeholder="ciudad">Ciudad</input>
         <input type="pais" placeholder="pais">Pais</input>
-        <b>
-          <a class="ghost button fw-bold border-white " href="/principal" id="signUp"  >CREAR CUENTA</a>
-        </b>
+        
+        <button class="ghost button fa-bold border-white " type="button" onclick="registro()">CREAR CUENTA</button>
+        <br>
+        <br>
+        <h5 id="errorBox" style="width: 100%;">
+        </h5>
       </div>
     </div>
   </div>
 </div>
 
-<script src="script.js" charset="utf-8"></script>
+<script src="js/registro.js"></script>
+<script src="js/script.js" charset="utf-8"></script>
+
 </body>
 </html>

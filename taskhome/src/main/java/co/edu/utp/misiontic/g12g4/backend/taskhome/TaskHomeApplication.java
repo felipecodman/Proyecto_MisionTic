@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.UserRepository;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.EmailRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -24,7 +24,7 @@ public class TaskHomeApplication {
 	@AllArgsConstructor
 	public static class DataLoader implements CommandLineRunner {
 
-		private final UserRepository userRepository;
+		private final EmailRepository userRepository;
 
 		@Override
 		public void run(String... args) throws Exception {
@@ -33,12 +33,11 @@ public class TaskHomeApplication {
 			// loadMovies1();
 		}
 
-		private void loadUsers() {
-			userRepository.save(new User("admin", "admin123", "Administrator",
-					"admin@prueba.com", true, true));
-		}
-
+		//private void loadUsers() {
+		//	userRepository.save(new User("admin", "admin", "admin123", "prueba1@gmail.com","1993-06-04", "1", "1", "30", true,
+		//			1));
+		//}
 
 	}
-	
+
 }

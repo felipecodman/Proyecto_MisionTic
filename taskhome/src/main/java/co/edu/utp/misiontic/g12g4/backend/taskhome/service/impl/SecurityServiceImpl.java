@@ -5,31 +5,31 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.UserRequest;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.UserResponse;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailRequest;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailResponse;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.model.entity.User;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.UserRepository;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.model.repository.EmailRepository;
 import co.edu.utp.misiontic.g12g4.backend.taskhome.service.SecurityService;
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
 public class SecurityServiceImpl implements SecurityService {
-    private final UserRepository userRepository;
+    private final EmailRepository emailRepository;
 
     @Override
-    public UserResponse validateUser(String username, String password) {
-         var userOp = userRepository.findById(username);
-         if (userOp.isEmpty()) {
-         throw new RuntimeException("Usuario no existente");
+    public EmailResponse validateEmail(String email, String password) {
+         var emailOp = emailRepository.findByEmail(email);
+         if (emailOp.isEmpty()) {
+         throw new RuntimeException("Correo Electronico no existente");
          }
 
-         var user = userOp.get();
-         if (!user.getActive()) {
+         var Email = emailOp.get();
+         if (!Email.getActive()) {
          throw new RuntimeException("Usuario inactivo");
          }
 
-         if (!user.getPassword().equals(password)) {
+         if (!Email.getPassword().equals(password)) {
         throw new RuntimeException("Credenciales inválidas");
          }
 
@@ -38,114 +38,110 @@ public class SecurityServiceImpl implements SecurityService {
        //     throw new RuntimeException("Credenciales inválidas");
        // }
 
-        user = userOp.get();
-        return UserResponse.builder()
-                .username(user.getUsername())
-                .name(user.getName())
-                .email(user.getEmail())
-                .admin(user.getAdmin())
+       var correo = emailOp.get();
+        return EmailResponse.builder()
+                .email(correo.getEmail())        
+                .username(correo.getNombreusuario())
+                .name(correo.getLoginusuario())
                 .build();
     }
 
     @Override
-    public List<UserResponse> getAllUsers() {
-        return userRepository.findAll().stream()
-                .map(u -> UserResponse.builder()
-                        .username(u.getUsername())
-                        .name(u.getName())
+    public List<EmailResponse> getAllEmail() {
+        return emailRepository.findAll().stream()
+                .map(u -> EmailResponse.builder()
+                        .username(u.getNombreusuario())
+                        .name(u.getLoginusuario())
                         .email(u.getEmail())
-                        .admin(u.getAdmin())
+                        //.admin(u.getAdmin())
                         .build())
                 .collect(Collectors.toList());
     }
-
+    
     @Override
-    public UserResponse getUserByUsername(String username) {
-        var userOp = userRepository.findById(username);
-        if (userOp.isEmpty()) {
+    public EmailResponse getUserByEmail(String email) {
+        var EmailOp = emailRepository.findByEmail(email);
+        if (EmailOp.isEmpty()) {
             throw new RuntimeException("El usuario no existe");
         }
 
-        var user = userOp.get();
-        return UserResponse.builder()
-                .username(user.getUsername())
-                .name(user.getName())
-                .email(user.getEmail())
-                .admin(user.getAdmin())
+        var Email = EmailOp.get();
+        return EmailResponse.builder()
+                .username(Email.getNombreusuario())
+                .name(Email.getLoginusuario())
+                .email(Email.getEmail())
                 .build();
     }
 
     @Override
-    public void createUser(UserRequest user) {
+    public void createEmail(EmailRequest email) {
 
-        var userOp = userRepository.findById(user.getUsername());
-        if (userOp.isPresent()) {
+        var emailOp = emailRepository.findByEmail(email.getEmail());
+        if (emailOp.isPresent()) {
             throw new RuntimeException("No puede utilizar ese nombre de usuario");
         }
 
-        userOp = userRepository.findByEmail(user.getEmail());
-        if (userOp.isPresent()) {
+        emailOp = emailRepository.findByEmail(email.getEmail());
+        if (emailOp.isPresent()) {
             throw new RuntimeException("Ya existe un usuario registrado con ese correo electrónico");
         }
 
-        var userDb = new User();
-        userDb.setUsername(user.getUsername());
-        userDb.setPassword(user.getPassword());
-        userDb.setName(user.getName());
-        userDb.setEmail(user.getEmail());
-        userDb.setActive(true);
-        userDb.setAdmin(user.getAdmin());
-        userDb = userRepository.save(userDb);
+        var emailDb = new User();
+        emailDb.setNombreusuario(email.getUsername());
+        emailDb.setPassword(email.getPassword());
+        emailDb.setLoginusuario(email.getName());
+        emailDb.setEmail(email.getEmail());
+        emailDb.setActive(true);
+        emailDb = emailRepository.save(emailDb);
 
     }
 
     @Override
-    public void updateUser(UserRequest user) {
-        var userOp = userRepository.findById(user.getUsername());
-        if (userOp.isEmpty()) {
+    public void updateEmail(EmailRequest Email) {
+        var EmailOp = emailRepository.findByEmail(Email.getEmail());
+        if (EmailOp.isEmpty()) {
             throw new RuntimeException("El usuario no existe");
         }
 
-        var userDb = userOp.get();
-        userDb.setUsername(user.getUsername());
-        userDb.setName(user.getName());
-        userDb.setEmail(user.getEmail());
-        userDb.setAdmin(user.getAdmin());
-        userDb = userRepository.save(userDb);
+        var emailDb = EmailOp.get();
+        emailDb.setNombreusuario(Email.getUsername());
+        emailDb.setLoginusuario(Email.getName());
+        emailDb.setEmail(Email.getEmail());
+        emailDb = emailRepository.save(emailDb);
     }
 
     @Override
-    public void deleteUser(String username) {
-        var userOp = userRepository.findById(username);
-        if (userOp.isEmpty()) {
+    public void deleteEmail(String email) {
+        var emailOp = emailRepository.findByEmail(email);
+        if (emailOp.isEmpty()) {
             throw new RuntimeException("El usuario no existe");
         }
 
-        userRepository.delete(userOp.get());
+        emailRepository.delete(emailOp.get());
     }
 
     @Override
-    public void activateUser(String username) {
-        var userOp = userRepository.findById(username);
-        if (userOp.isEmpty()) {
+    public void activateEmail(String email) {
+        var emailOp = emailRepository.findByEmail(email);
+        if (emailOp.isEmpty()) {
             throw new RuntimeException("El usuario no existe");
         }
 
-        var user = userOp.get();
-        user.setActive(true);
-        userRepository.save(user);
+        var Email = emailOp.get();
+        Email.setActive(true);
+        emailRepository.save(Email);
     }
 
     @Override
-    public void inactivateUser(String username) {
-        var userOp = userRepository.findById(username);
-        if (userOp.isEmpty()) {
+    public void inactivateEmail(String email) {
+        var emailOp = emailRepository.findById(email);
+        if (emailOp.isEmpty()) {
             throw new RuntimeException("El usuario no existe");
         }
 
-        var user = userOp.get();
-        user.setActive(false);
-        userRepository.save(user);
+        var Email = emailOp.get();
+        Email.setActive(false);
+        emailRepository.save(Email);
 
     }
 }

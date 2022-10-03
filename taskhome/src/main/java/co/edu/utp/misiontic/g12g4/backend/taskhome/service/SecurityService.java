@@ -2,24 +2,24 @@ package co.edu.utp.misiontic.g12g4.backend.taskhome.service;
 
 import java.util.List;
 
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.UserRequest;
-import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.UserResponse;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailRequest;
+import co.edu.utp.misiontic.g12g4.backend.taskhome.controller.dto.EmailResponse;
 
 public interface SecurityService {
 
-    UserResponse validateUser(String username, String password);
+    EmailResponse validateEmail(String email, String password);
 
-    List<UserResponse> getAllUsers();
+    List<EmailResponse> getAllEmail();
 
-    UserResponse getUserByUsername(String username);
+    EmailResponse getUserByEmail(String email);
 
-    void createUser(UserRequest user);
+    void createEmail(EmailRequest email);
 
-    void updateUser(UserRequest user);
+    void updateEmail(EmailRequest email);
 
-    void deleteUser(String username);
+    void deleteEmail(String email);
 
-    void activateUser(String username);
+    void activateEmail(String email);
 
-    void inactivateUser(String username);
+    void inactivateEmail(String email);
 }

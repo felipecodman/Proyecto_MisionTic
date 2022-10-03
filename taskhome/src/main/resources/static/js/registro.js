@@ -1,8 +1,14 @@
-const login = () => {
-    const email = document.getElementById("floatingInput").value;
+const registro = () => {
+    const username = document.getElementById("floatingInput").value;
+    const correo = document.getElementById("floatingCorreo").value;
     const password = document.getElementById("floatingPassword").value;
+    const confirmarpassword = document.getElementById("floatingConfirmarPassword").value;
 
-    if (email == "") {
+    if (username == "") {
+        showError("El NOMBRE DEL USUARIO es requerido");
+        return;
+    }
+    if (correo == "") {
         showError("El CORREO ELECTRONICO es requerido");
         return;
     }
@@ -10,18 +16,26 @@ const login = () => {
         showError("La CONTRASEÑA es requerida");
         return;
     }
+    if (confirmarpassword == "") {
+        showError("La CONTRASEÑA de confirmacion es requerida");
+        return;
+    }
+    if (password != confirmarpassword) {
+        showError("Las CONTRASEÑAS  no coinciden");
+        return;
+    }
 
     const body = {
-        "email": email,
-        "password": password,
+        "username": username,
+        "password": password
     };
-    postToEmail(body);
+    postTovalidateCorreo(body);
 
 
 };
 
-const postToEmail = async (bodyObject) => {
-    const url = "/api/login";
+const postTovalidateCorreo = async (bodyObject) => {
+    const url = "/api/registro";
     const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(bodyObject),
@@ -31,11 +45,11 @@ const postToEmail = async (bodyObject) => {
     });
 
     if (response.ok) {
-        const email = await response.json();
+        const user = await response.json();
+
+        localStorage.setItem("loggedUser", JSON.stringify(user));
         
-        localStorage.setItem("loggedUser", JSON.stringify(email));
-        
-        alert("Bienvenido "+ email.email + " !", "success");
+        alert("Bienvenido "+user.username+"!", "success");
         
         await new Promise(r => setTimeout(r, 2000));
 
@@ -58,4 +72,3 @@ const alert = (message, type) => {
         '</div>'
     ].join('')
 }
-

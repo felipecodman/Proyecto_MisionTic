@@ -5,14 +5,13 @@ import lombok.Data;
 
 @Builder
 @Data
-public class UserRequest {
+public class EmailRequest {
+    private String email;
+
     private String username;
 
     private String password;
 
     private String name;
 
-    private String email;
-
-    private Boolean admin;
 }
